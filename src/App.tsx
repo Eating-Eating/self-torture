@@ -57,7 +57,6 @@ function App() {
 <Route path="/webBrowser/pwa" key="/webBrowser/pwa" exact>{AsyncCompoennt(import("./pages/markdown/webBrowser/pwa.md"))}</Route>
 <Route path="/webBrowser/safety" key="/webBrowser/safety" exact>{AsyncCompoennt(import("./pages/markdown/webBrowser/safety.md"))}</Route>
         </BasePage>
-        
       </Switch>
     </BottomNav>
     </ThemeProvider>
