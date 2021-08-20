@@ -1,30 +1,25 @@
 ## <a id="whatis">是什么</a>
-keywords:['Broadcast Channe','LocalStorage','Service Worker','Shared Worker','Websocket']
-
-#### 同源页面之间通讯：
-
-对于同源页面，常见的方式包括：
-
-- 广播模式：Broadcast Channe / Service Worker / LocalStorage + StorageEvent
-- 共享存储模式：Shared Worker / IndexedDB / cookie
-- 口口相传模式：window.open + window.opener
-- 基于服务端：Websocket / Comet / SSE 等
-
-#### 非同源：
-
-通过嵌入iframe实现，iframe 与父页面间可以通过指定`origin`来忽略同源限制，因此可以在每个页面中嵌入一个 iframe （例如：`http://sample.com/bridge.html`），而这些 iframe 由于使用的是一个 url，因此属于同源页面，其通信方式可以复用上面第一部分提到的各种方式。
+跨tab页通信，需要实现发布-订阅模式
 
 
 
 ## <a id="issue">缺陷/优化</a>
 
+CPU渲染瓶颈：同步更新改为可中断的异步更新
 
+IO瓶颈：同步更新改为可中断的异步更新
+
+阻止频繁的更新：useMemo，useCallback
+
+关键词：可中断的异步更新，中间状态
 
 ## <a id="scenario">应用场景</a>
 
-需要即时改变应用状态
+大型应用
 
 ## <a id="replacement">代替方案</a>
 
+svelte：**No Runtime**、**Samll**、**高性能**、**更少的代码**、**单测不友好**、**生态不完善**、**数组映射脏数据更新**
 
+vue
 

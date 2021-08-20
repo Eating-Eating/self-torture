@@ -1,25 +1,11 @@
 ## <a id="whatis">是什么</a>
-跨tab页通信，需要实现发布-订阅模式
-
-
+当 LocalStorage 变化时，会触发`storage`事件。利用这个特性，我们可以在发送消息时，把消息写入到某个 LocalStorage 中；然后在各个页面内，通过监听`storage`事件即可收到通知。注
 
 ## <a id="issue">缺陷/优化</a>
 
-CPU渲染瓶颈：同步更新改为可中断的异步更新
-
-IO瓶颈：同步更新改为可中断的异步更新
-
-阻止频繁的更新：useMemo，useCallback
-
-关键词：可中断的异步更新，中间状态
+前后值相同不会触发storage事件：添加时间戳
 
 ## <a id="scenario">应用场景</a>
 
-大型应用
-
 ## <a id="replacement">代替方案</a>
-
-svelte：**No Runtime**、**Samll**、**高性能**、**更少的代码**、**单测不友好**、**生态不完善**、**数组映射脏数据更新**
-
-vue
 
