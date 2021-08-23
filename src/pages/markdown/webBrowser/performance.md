@@ -23,7 +23,7 @@ IO瓶颈：同步更新改为可中断的异步更新
 
 ## <a id="replacement">代替方案</a>
 
-svelte：**No Runtime**、**Samll**、**高性能**、**更少的代码**、**单测不友好**、**生态不完善**、**数组映射脏数据更新**
-
-vue
+> 一篇讲透自研的前端错误监控：https://juejin.cn/post/6987681953424080926#heading-10
+>
+> 如何实现一套多端错误监控平台：https://www.yuque.com/zaotalk/posts/mxx4cb#QUH0x
 
