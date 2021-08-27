@@ -14,3 +14,4 @@ keywords:["意外的全局变量","被遗忘的计时器或回调函数","脱离
 
 ## <a id="replacement">代替方案</a>
 
+> 三色标记法与读写屏障:https://www.jianshu.com/p/12544c0ad5c1

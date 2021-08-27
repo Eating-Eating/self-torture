@@ -1,21 +1,33 @@
 ## <a id="whatis">是什么</a>
-构建用户界面的Javascript库。
+基于ant-design-vue改的组件库
 
-React16架构可以分为三层：
+60多个组件
 
-- Scheduler（调度器）—— 调度任务的优先级，高优任务优先进入**Reconciler**
-- Reconciler（协调器）—— 负责找出变化的组件
-- Renderer（渲染器）—— 负责将变化的组件渲染到页面上
+两种打包模式，esDir/libDir，
+
+主要开发：
+
+1. 重写发布流程，重写打包逻辑
+2. 新写组件展示组件，一个md含有多个演示代码块
+   - 一个md文件就是一个vue文件，name为page-demo输出。
+   - 将自定义token里的代码块转化为componentString的字符串形式的渲染函数放入page-demo中的components属性中，防止方法、data污染。
+   - show-block=>souce插槽中插入componentString，html插槽中插入转化为html的源码，实际上还有其他的插槽，比如describe插槽，提示插槽。
+   - 多个show-block组成一个page-demo组件。
+3. yarn link链接调试组件。
 
 ## <a id="issue">缺陷/优化</a>
 
-CPU渲染瓶颈：同步更新改为可中断的异步更新
+单md重复import校验
 
-IO瓶颈：同步更新改为可中断的异步更新
+md-loader中自定义token
 
-阻止频繁的更新：useMemo，useCallback
+vue3-render渲染
 
-关键词：可中断的异步更新，中间状态
+压缩CSS：optimize-css-assets-webpack-plugin，
+
+import-plugin：解决import css跟import Js
+
+gulp：编写发布，发布校验，打包等自动化脚本，控制打包参数。
 
 ## <a id="scenario">应用场景</a>
 

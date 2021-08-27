@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
-import {stringJson} from './output'
+import {dirOutput} from './output'
 // const initialState:{
 //   routes:singleCata[]
 // } = { 
@@ -116,11 +116,11 @@ import {stringJson} from './output'
 //     }],
 //   }]
 // }
-console.log(JSON.parse(stringJson))
+console.log(dirOutput)
 const initialState:{
   routes:singleCata[]
 } = {
-  routes:JSON.parse(stringJson).keyWords
+  routes:dirOutput.keyWords
 } 
 function keyWordsReducer(state = initialState, action: { type: string }) {
   // 检查 reducer 是否关心这个 action

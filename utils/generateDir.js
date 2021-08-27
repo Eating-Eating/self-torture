@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path=require('path');
+const util = require('util')
+
 function travel(dir,callback,pushPath){
     let nowPath
     if(pushPath){
@@ -42,8 +44,9 @@ const output = travel(path.resolve(__dirname,'../src/pages/markdown'),function(o
         }
     }
 })
-console.log(JSON.stringify(output))
-
+// console.log(JSON.stringify(output))
+// console.log(util.inspect(output, {showHidden: false, depth: null}))
+console.dir(output,{depth:null})
 // const fs = require('fs');
 // const path=require('path');
 // function travel(dir,callback,pushPath){
