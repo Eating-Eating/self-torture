@@ -33,7 +33,7 @@ const output = travel(path.resolve(__dirname,'../src/pages/markdown'),function(o
     if(file.includes('.md')){
         if(file.includes('index.md')){
             obj.label = nowLabel
-            obj.mdPath = nowRoutePath + file
+            obj.mdPath ="./pages/markdown"+ nowRoutePath + "/"+ file
         }else{
             obj.keyWords.push({
                 label:file.split('.md')[0],

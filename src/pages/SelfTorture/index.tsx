@@ -65,13 +65,13 @@ export const SelfTorture = ()=>{
   },[nowQuestion])
   return <>
   <Grid container justifyContent="center" spacing={10}>
-  <Grid item >
-    <Typography>
-      {nowQuestion.name}
-    </Typography>
+    <Grid item xs={12} justifyContent="center">
+      <Typography align="center">
+        {nowQuestion.name}
+      </Typography>
     </Grid>
-    <Grid item >
-    <Grid container justifyContent="flex-start" spacing={1}>
+    <Grid item xs={12} justifyContent="center">
+    <Grid container justifyContent="center" spacing={1}>
       {option.map((key: any)=>{
           return <Grid item key={key}>
           <Chip
@@ -91,7 +91,7 @@ export const SelfTorture = ()=>{
     }
     </Grid>
     </Grid>
-    <Grid item>
+    <Grid item xs={12} >
   <Grid container justifyContent="center" spacing={10}>
     <Grid item>
     <Button variant="contained" color="primary" onClick={()=>{

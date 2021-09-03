@@ -6,7 +6,7 @@ export const dirOutput = {
     {
       label: 'javascript',
       routePath: '/javascript',
-      mdPath: '/javascriptindex.md',
+      mdPath: './pages/markdown/javascript/index.md',
       keyWords: [
         {
           label: 'closure',
@@ -49,7 +49,7 @@ export const dirOutput = {
     {
       label: 'projects',
       routePath: '/projects',
-      mdPath: '/projectsindex.md',
+      mdPath: './pages/markdown/projects/index.md',
       keyWords: [
         {
           label: 'linktime',
@@ -80,7 +80,7 @@ export const dirOutput = {
     {
       label: 'react',
       routePath: '/react',
-      mdPath: '/reactindex.md',
+      mdPath: './pages/markdown/react/index.md',
       keyWords: [
         {
           label: 'diff',
@@ -129,7 +129,7 @@ export const dirOutput = {
     {
       label: 'vue',
       routePath: '/vue',
-      mdPath: '/vueindex.md',
+      mdPath: './pages/markdown/vue/index.md',
       keyWords: [
         {
           label: 'diff',
@@ -172,7 +172,7 @@ export const dirOutput = {
     {
       label: 'webBrowser',
       routePath: '/webBrowser',
-      mdPath: '/webBrowserindex.md',
+      mdPath: './pages/markdown/webBrowser/index.md',
       keyWords: [
         {
           label: 'cookie',
@@ -183,7 +183,7 @@ export const dirOutput = {
         {
           label: 'crossPage',
           routePath: '/webBrowser/crossPage',
-          mdPath: '/webBrowser/crossPageindex.md',
+          mdPath: './pages/markdown/webBrowser/crossPage/index.md',
           keyWords: [
             {
               label: 'Broadcast Channe',
@@ -226,7 +226,7 @@ export const dirOutput = {
         {
           label: 'garbageCycle',
           routePath: '/webBrowser/garbageCycle',
-          mdPath: '/webBrowser/garbageCycleindex.md',
+          mdPath: './pages/markdown/webBrowser/garbageCycle/index.md',
           keyWords: [
             {
               label: 'memoryLeak',
@@ -251,7 +251,7 @@ export const dirOutput = {
         {
           label: 'safety',
           routePath: '/webBrowser/safety',
-          mdPath: '/webBrowser/safetyindex.md',
+          mdPath: './pages/markdown/webBrowser/safety/index.md',
           keyWords: [
             {
               label: 'csrf',
@@ -290,7 +290,7 @@ export const dirOutput = {
     {
       label: 'webpack',
       routePath: '/webpack',
-      mdPath: '/webpackindex.md',
+      mdPath: './pages/markdown/webpack/index.md',
       keyWords: [
         {
           label: 'micro-front',

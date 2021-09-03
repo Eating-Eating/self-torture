@@ -32,7 +32,7 @@ export const BottomNav:FC<{children:ReactElement}> =  ({children})=>{
     className={classes.bottom}
   >
   <BottomNavigationAction value="/react" label="知识的宝库" icon={<RestoreIcon />} />
-  <BottomNavigationAction value="/beTheKing" label="自我拷打" icon={<RestoreIcon />} />
+  <BottomNavigationAction value="/selfTorture" label="自我拷打" icon={<RestoreIcon />} />
 </BottomNavigation>
 </>)
 }

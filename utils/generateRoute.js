@@ -2,7 +2,7 @@ const routes = [
   {
     label: 'javascript',
     routePath: '/javascript',
-    mdPath: '/javascriptindex.md',
+    mdPath: './pages/markdown/javascript/index.md',
     keyWords: [
       {
         label: 'closure',
@@ -45,7 +45,7 @@ const routes = [
   {
     label: 'projects',
     routePath: '/projects',
-    mdPath: '/projectsindex.md',
+    mdPath: './pages/markdown/projects/index.md',
     keyWords: [
       {
         label: 'linktime',
@@ -76,7 +76,7 @@ const routes = [
   {
     label: 'react',
     routePath: '/react',
-    mdPath: '/reactindex.md',
+    mdPath: './pages/markdown/react/index.md',
     keyWords: [
       {
         label: 'diff',
@@ -125,7 +125,7 @@ const routes = [
   {
     label: 'vue',
     routePath: '/vue',
-    mdPath: '/vueindex.md',
+    mdPath: './pages/markdown/vue/index.md',
     keyWords: [
       {
         label: 'diff',
@@ -168,7 +168,7 @@ const routes = [
   {
     label: 'webBrowser',
     routePath: '/webBrowser',
-    mdPath: '/webBrowserindex.md',
+    mdPath: './pages/markdown/webBrowser/index.md',
     keyWords: [
       {
         label: 'cookie',
@@ -179,7 +179,7 @@ const routes = [
       {
         label: 'crossPage',
         routePath: '/webBrowser/crossPage',
-        mdPath: '/webBrowser/crossPageindex.md',
+        mdPath: './pages/markdown/webBrowser/crossPage/index.md',
         keyWords: [
           {
             label: 'Broadcast Channe',
@@ -222,7 +222,7 @@ const routes = [
       {
         label: 'garbageCycle',
         routePath: '/webBrowser/garbageCycle',
-        mdPath: '/webBrowser/garbageCycleindex.md',
+        mdPath: './pages/markdown/webBrowser/garbageCycle/index.md',
         keyWords: [
           {
             label: 'memoryLeak',
@@ -247,7 +247,7 @@ const routes = [
       {
         label: 'safety',
         routePath: '/webBrowser/safety',
-        mdPath: '/webBrowser/safetyindex.md',
+        mdPath: './pages/markdown/webBrowser/safety/index.md',
         keyWords: [
           {
             label: 'csrf',
@@ -286,7 +286,7 @@ const routes = [
   {
     label: 'webpack',
     routePath: '/webpack',
-    mdPath: '/webpackindex.md',
+    mdPath: './pages/markdown/webpack/index.md',
     keyWords: [
       {
         label: 'micro-front',

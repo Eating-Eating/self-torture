@@ -26,5 +26,6 @@ module.exports = function(source) {
     };
   });
   let output = markdown.render(source)
+  console.log('ex',`export default ()=><div>${output}</div>`)
   return `export default ()=><div>${output}</div>`
 }
