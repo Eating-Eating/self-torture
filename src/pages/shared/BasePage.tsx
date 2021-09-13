@@ -1,6 +1,6 @@
 import { Chip, Grid,Fab, AppBar, Breadcrumbs, Drawer, IconButton, Link, Toolbar, List, ListItem, ListItemText, ListItemProps, Slide, Container } from "@material-ui/core";
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import { FC, useMemo, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import ListIcon from '@material-ui/icons/List';
 import Popover from '@material-ui/core/Popover';
 //@ts-ignore
@@ -23,8 +23,8 @@ const useStyles = makeStyles((theme:any) =>{
     },
     Fab:{
       position: "fixed",
-      bottom:'50px',
-      right:'50px',
+      bottom:'70px',
+      right:'20px',
       top:'auto'
     },
   })
@@ -51,6 +51,8 @@ const HideOnScroll = (props: {
 const BasePage:FC<{}> = ({children})=> {
   const history = useHistory()
   const location = useLocation()
+  const [ifDrawer,setDrawer] = useState(false)
+  const [nowTitles,setNowTitles] = useState<{label:string;id:string}[] | never[]>([])
   const nowPaths = useMemo(()=>{
     const pathArr = location.pathname.split('/')
     pathArr.shift()
@@ -69,6 +71,19 @@ const BasePage:FC<{}> = ({children})=> {
     return nowPaths
   },[location])
   const routes = useAppSelector((state)=>state.routes)
+  // 右下角标根据指定id来渲染
+  useEffect(()=>{
+    let list = []
+    const aNodeList = Array.from(document.querySelectorAll("a"))
+    list = aNodeList.filter(v=>v.id)
+    const handledList = list.map(v=>{
+      return {
+        label:v.innerText,
+        id:v.id
+      }
+    })
+    setNowTitles(handledList)
+  },[children])
   const nowState = useMemo(()=>{
     let temp:singleCata = {
       label:'',
@@ -91,7 +106,6 @@ const BasePage:FC<{}> = ({children})=> {
     rec(routes)
     return temp
   },[location.pathname, routes])
-  const [ifDrawer,setDrawer] = useState(false)
   // const [bottomValue,setBottomValue] = useState('whatis')
   const classes = useStyles();
   return <>
@@ -168,18 +182,11 @@ const BasePage:FC<{}> = ({children})=> {
             }}
           >
           <List component="nav" aria-label="secondary mailbox folders">
-            <ListItemLink href="#whatis">
-              <ListItemText primary="是什么" />
+            {nowTitles.map(v=>{
+            return <ListItemLink href={'#'+v.id} key={v.id}>
+              <ListItemText primary={v.label} />
             </ListItemLink>
-            <ListItemLink href="#issue">
-              <ListItemText primary="缺陷/优化" />
-            </ListItemLink>
-            <ListItemLink href="#scenario">
-              <ListItemText primary="应用场景" />
-            </ListItemLink>
-            <ListItemLink href="#replacement">
-              <ListItemText primary="代替方案" />
-            </ListItemLink>
+            })}
           </List>
           </Popover>
         </div>

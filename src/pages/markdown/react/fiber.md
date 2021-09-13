@@ -1,11 +1,13 @@
 ## <a id="whatis">是什么</a>
-构建用户界面的Javascript库。
+['fiber reconciler','fiber node','fiber linked list','fiber tree']
 
-React16架构可以分为三层：
+<u>**Fiber架构**</u>的三层含义
 
-- Scheduler（调度器）—— 调度任务的优先级，高优任务优先进入**Reconciler**
-- Reconciler（协调器）—— 负责找出变化的组件
-- Renderer（渲染器）—— 负责将变化的组件渲染到页面上
+1. 作为架构来说，之前`React15`的`Reconciler`采用递归的方式执行，数据保存在递归调用栈中，所以被称为`stack Reconciler`。`React16`的`Reconciler`基于`Fiber节点`实现，被称为`Fiber Reconciler`。
+2. 作为静态的数据结构来说，每个`Fiber节点`对应一个`React element`，保存了该组件的类型（函数组件/类组件/原生组件...）、对应的DOM节点等信息。
+3. 作为动态的工作单元来说，每个`Fiber节点`保存了本次更新中该组件改变的状态、要执行的工作（需要被删除/被插入页面中/被更新...）。
+
+##  
 
 ## <a id="issue">缺陷/优化</a>
 

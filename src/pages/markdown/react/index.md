@@ -1,11 +1,28 @@
 ## <a id="whatis">是什么</a>
+keywords:['新老架构对比','class组件与functional component对比']
 构建用户界面的Javascript库。
 
 React16架构可以分为三层：
 
-- Scheduler（调度器）—— 调度任务的优先级，高优任务优先进入**Reconciler**
+- Scheduler（调度器，新）—— 调度任务的优先级，高优任务优先进入**Reconciler**
 - Reconciler（协调器）—— 负责找出变化的组件
 - Renderer（渲染器）—— 负责将变化的组件渲染到页面上
+
+## <a id="whatis">工作流程</a>
+
+典型工作流程，Functional Component版在hook中
+
+1. 创建更新：setState，ReactDom.render，forceUpdate
+2. 任务调度
+   1. beginWork
+   2. mount/update
+   3. reconcilieChildren
+   4. commit
+3. commit阶段
+   1. commitBeforeMutationLifecycles：提交snapshot
+   2. commit-all-host-effects：提交hostComopnent的side effect
+   3. commit-all-lifecycles：提交所有组件的生命周期
+
 
 ## <a id="issue">缺陷/优化</a>
 
@@ -21,9 +38,9 @@ IO瓶颈：同步更新改为可中断的异步更新
 
 大型应用
 
-## <a id="replacement">代替方案</a>
+## <a id="reference">参考</a>
 
-svelte：**No Runtime**、**Samll**、**高性能**、**更少的代码**、**单测不友好**、**生态不完善**、**数组映射脏数据更新**
+React源码解析：https://react.jokcy.me/
 
-vue
+React技术揭秘：https://react.iamkasong.com/
 

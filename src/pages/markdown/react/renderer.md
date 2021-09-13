@@ -1,5 +1,7 @@
 ## <a id="whatis">是什么</a>
-
+1. beginWork
+2. mount/update
+3. reconcilieChildren
 
 ## <a id="issue">缺陷/优化</a>
 

@@ -72,15 +72,7 @@ keywords:['构建dom树','构建cssom树','渲染','Style','Layout','Paint','Com
 2. 使用 transform 或者 opacity 来实现动画效果, 这样只需要做合成层的合并就好了。
 3. 减少绘制区域 对于不需要重新绘制的区域应尽量避免绘制，以减少绘制区域，比如一个 fix 在页面顶部的固定不变的导航header，在页面内容某个区域 repaint 时，整个屏幕包括 fix 的 header 也会被重绘。`而对于固定不变的区域，我们期望其并不会被重绘，因此可以通过之前的方法，将其提升为独立的合成层。减少绘制区域，需要仔细分析页面，区分绘制区域，减少重绘区域甚至避免重绘。`
 
-## <a id="scenario">应用场景</a>
-
-
-
-## <a id="replacement">代替方案</a>
-
-
-
-## 参考资料
+## <a id="reference">参考</a>
 
 > 渲染页面：浏览器的工作原理：https://developer.mozilla.org/zh-CN/docs/Web/Performance/How_browsers_work
 >
