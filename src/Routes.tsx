@@ -1,17 +1,19 @@
 
 import {AsyncCompoennt} from './pages/shared/asyncComponent'
 import {SelfTorture} from '@/pages/SelfTorture'
-import BottomNav from '@/pages/shared/BottomNav'
+import {BottomNav} from '@/pages/shared/BottomNav'
 import { Route, Switch,  } from "react-router-dom";
 import BasePage from '@/pages/shared/BasePage'
 
 export const Routes = ()=>{
   return (
+    <Route>
     <BottomNav>
       <Switch>
         <Route path="/selfTorture" exact>
           <SelfTorture/>
         </Route>
+        <Route>
         <BasePage>
         <Route path="/css" key="/css" exact>{AsyncCompoennt(import("./pages/markdown/css/index.md"))}</Route>
 <Route path="/css/flex" key="/css/flex" exact>{AsyncCompoennt(import("./pages/markdown/css/flex.md"))}</Route>
@@ -69,7 +71,8 @@ export const Routes = ()=>{
 <Route path="/webpack/perfomance" key="/webpack/perfomance" exact>{AsyncCompoennt(import("./pages/markdown/webpack/perfomance.md"))}</Route>
 <Route path="/webpack/progress" key="/webpack/progress" exact>{AsyncCompoennt(import("./pages/markdown/webpack/progress.md"))}</Route>
         </BasePage>
+        </Route>
       </Switch>
-    </BottomNav>
+    </BottomNav></Route>
   )
 }
