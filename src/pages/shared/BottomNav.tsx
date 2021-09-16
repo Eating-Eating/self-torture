@@ -5,7 +5,7 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import RestoreIcon from '@material-ui/icons/Restore';
 import { createStyles,makeStyles } from "@material-ui/styles";
 import { FC, ReactElement } from 'react';
-import { useHistory, useLocation } from 'react-router';
+import { useHistory, useLocation } from 'react-router-dom';
 const useStyles = makeStyles((theme:any) =>{
   return createStyles({
     bottom: {

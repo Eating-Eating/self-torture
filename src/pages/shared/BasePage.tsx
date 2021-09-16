@@ -9,7 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import {  singleCata, useAppSelector } from '../../store'
 import './BasePage.scss'
 import { createStyles,makeStyles } from "@material-ui/styles";
-import { useHistory, useLocation } from "react-router";
+import { useHistory, useLocation } from "react-router-dom";
 const useStyles = makeStyles((theme:any) =>{
   return createStyles({
     root: {

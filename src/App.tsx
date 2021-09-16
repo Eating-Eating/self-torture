@@ -20,7 +20,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Container maxWidth="lg" className="appContainer">
-      <Routes></Routes>
+        <Routes></Routes>
       </Container>
     </ThemeProvider>
   );
