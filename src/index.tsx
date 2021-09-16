@@ -25,14 +25,14 @@ const theme = createTheme({
   }
 });
 ReactDOM.render(
-  <BrowserRouter basename="/eating-eating">
       <Provider store={store}>
         <ThemeProvider theme={theme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
+  <BrowserRouter basename="/eating-eating">
           <App />
+    </BrowserRouter>
         </ThemeProvider>
-      </Provider>
-    </BrowserRouter>,
+      </Provider>,
   document.querySelector('#root'),
 );
