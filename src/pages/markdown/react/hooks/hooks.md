@@ -1,12 +1,10 @@
 ## <a id="whatis">是什么</a>
 
-['baseState','memoizedState','queue']
+Functional Component独有的更新方式。每个组件内，如果调用了updateFunctionalComponent，将会形成一个单向的workInProgress对象链表，并且每次完成更新后都会将这个头节点存入fiber的memorizedState中后将头结点值为null，方便下次再来一次。这也是为什么hooks顺序不能乱的原因。
 
-Functional Component独有的更新方式。
 
-每个组件内，如果调用了hook，将会形成一个hooks调用链表,具体执行方式就是每轮都会执行一次该函数，将hook queue清空为止，直到异步执行dom操作或其他优先级更高的操作为止，执行完异步操作就会进入side effect操作，或者执行dom操作之前执行useLayoutEffect。
 
-该结构粒度为单组件。
+
 
 #### 数据结构：
 
@@ -16,7 +14,7 @@ function createHook(): Hook {
     memoizedState: null,
 
     baseState: null,
-    queue: null,
+    queue: null | {last:null | queue,dispath:dispatch},
     baseUpdate: null,
 
     next: null,
@@ -25,6 +23,10 @@ function createHook(): Hook {
 ```
 
 
+
+#### useState
+
+本质是useReducer的语法糖
 
 ### 流程
 

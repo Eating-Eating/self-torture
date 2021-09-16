@@ -154,7 +154,7 @@ const BasePage:FC<{}> = ({children})=> {
         
           )}
       </Grid>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" style={{overflowX:'auto'}}>
       {children}
       </Container>
       <PopupState variant="popover" popupId="demo-popup-popover">

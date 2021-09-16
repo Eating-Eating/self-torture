@@ -19,11 +19,11 @@ function App() {
   });
   return (
     <BrowserRouter basename="/eating-eating">
+    <ThemeProvider theme={theme}>
       <Container maxWidth="lg" className="appContainer">
       <Routes></Routes>
-    <ThemeProvider theme={theme}>
-    </ThemeProvider>
       </Container>
+    </ThemeProvider>
     </BrowserRouter>
   );
 }
