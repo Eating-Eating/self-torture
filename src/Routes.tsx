@@ -1,7 +1,7 @@
 
 import {AsyncCompoennt} from './pages/shared/asyncComponent'
 import {SelfTorture} from '@/pages/SelfTorture'
-import {BottomNav} from '@/pages/shared/BottomNav'
+import BottomNav from '@/pages/shared/BottomNav'
 import { Route, Switch,  } from "react-router-dom";
 import BasePage from '@/pages/shared/BasePage'
 

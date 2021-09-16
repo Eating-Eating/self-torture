@@ -4,8 +4,9 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import RestoreIcon from '@material-ui/icons/Restore';
 import { createStyles,makeStyles } from "@material-ui/styles";
-import { FC, ReactElement } from 'react';
+import { FC } from 'react';
 import { useHistory, useLocation } from 'react-router';
+import { withRouter } from 'react-router-dom';
 const useStyles = makeStyles((theme:any) =>{
   return createStyles({
     bottom: {
@@ -17,7 +18,7 @@ const useStyles = makeStyles((theme:any) =>{
     },
   })
 });
-export const BottomNav:FC<{children:ReactElement}> =  ({children})=>{
+ const BottomNav:FC<{}> =  ({children})=>{
   const history = useHistory()
   const location = useLocation()
   const classes = useStyles();
@@ -36,3 +37,5 @@ export const BottomNav:FC<{children:ReactElement}> =  ({children})=>{
 </BottomNavigation>
 </>)
 }
+
+export default withRouter(BottomNav)

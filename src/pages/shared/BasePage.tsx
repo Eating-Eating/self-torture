@@ -3,6 +3,7 @@ import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import { FC, useEffect, useMemo, useState } from "react";
 import ListIcon from '@material-ui/icons/List';
 import Popover from '@material-ui/core/Popover';
+import {withRouter} from 'react-router-dom'
 //@ts-ignore
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -208,4 +209,4 @@ const BasePage:FC<{}> = ({children})=> {
       </Drawer>
   </>
 }
-export default BasePage
+export default withRouter(BasePage)
