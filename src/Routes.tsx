@@ -13,7 +13,9 @@ export const Routes = ()=>{
           <SelfTorture/>
         </Route>
         <BasePage>
-        <Route path="/javascript" key="/javascript" exact>{AsyncCompoennt(import("./pages/markdown/javascript/index.md"))}</Route>
+        <Route path="/css" key="/css" exact>{AsyncCompoennt(import("./pages/markdown/css/index.md"))}</Route>
+<Route path="/css/flex" key="/css/flex" exact>{AsyncCompoennt(import("./pages/markdown/css/flex.md"))}</Route>
+<Route path="/javascript" key="/javascript" exact>{AsyncCompoennt(import("./pages/markdown/javascript/index.md"))}</Route>
 <Route path="/javascript/closure" key="/javascript/closure" exact>{AsyncCompoennt(import("./pages/markdown/javascript/closure.md"))}</Route>
 <Route path="/javascript/debounce" key="/javascript/debounce" exact>{AsyncCompoennt(import("./pages/markdown/javascript/debounce.md"))}</Route>
 <Route path="/javascript/deepClone" key="/javascript/deepClone" exact>{AsyncCompoennt(import("./pages/markdown/javascript/deepClone.md"))}</Route>
@@ -28,10 +30,13 @@ export const Routes = ()=>{
 <Route path="/react" key="/react" exact>{AsyncCompoennt(import("./pages/markdown/react/index.md"))}</Route>
 <Route path="/react/diff" key="/react/diff" exact>{AsyncCompoennt(import("./pages/markdown/react/diff.md"))}</Route>
 <Route path="/react/fiber" key="/react/fiber" exact>{AsyncCompoennt(import("./pages/markdown/react/fiber.md"))}</Route>
-<Route path="/react/hooks" key="/react/hooks" exact>{AsyncCompoennt(import("./pages/markdown/react/hooks.md"))}</Route>
+<Route path="/react/hooks" key="/react/hooks" exact>{AsyncCompoennt(import("./pages/markdown/react/hooks/index.md"))}</Route>
+<Route path="/react/hooks/useEffect" key="/react/hooks/useEffect" exact>{AsyncCompoennt(import("./pages/markdown/react/hooks/useEffect.md"))}</Route>
+<Route path="/react/hooks/useState" key="/react/hooks/useState" exact>{AsyncCompoennt(import("./pages/markdown/react/hooks/useState.md"))}</Route>
 <Route path="/react/key" key="/react/key" exact>{AsyncCompoennt(import("./pages/markdown/react/key.md"))}</Route>
 <Route path="/react/performance" key="/react/performance" exact>{AsyncCompoennt(import("./pages/markdown/react/performance.md"))}</Route>
 <Route path="/react/redux" key="/react/redux" exact>{AsyncCompoennt(import("./pages/markdown/react/redux.md"))}</Route>
+<Route path="/react/renderer" key="/react/renderer" exact>{AsyncCompoennt(import("./pages/markdown/react/renderer.md"))}</Route>
 <Route path="/react/update" key="/react/update" exact>{AsyncCompoennt(import("./pages/markdown/react/update.md"))}</Route>
 <Route path="/vue" key="/vue" exact>{AsyncCompoennt(import("./pages/markdown/vue/index.md"))}</Route>
 <Route path="/vue/diff" key="/vue/diff" exact>{AsyncCompoennt(import("./pages/markdown/vue/diff.md"))}</Route>

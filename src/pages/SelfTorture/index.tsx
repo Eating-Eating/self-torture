@@ -4,12 +4,10 @@ import { useEffect, useMemo, useState } from "react"
 
 export const SelfTorture = ()=>{
   const routes = useAppSelector((state)=>state.routes)
-  const [test1,setTest1] = useState(1)
-  const [test2,setTest2] = useState(11)
   const allKeywords = useMemo(()=>{
     const questions: { name: any; answer: string[] }[] = []
     const keysArr: string[] = []
-    const rec = (routes:singleCata[] | string[],name:any[])=>{
+    const rec = (routes:Array<singleCata | string>,name:any[])=>{
       if(routes.length>0){
         routes.forEach(key=>{
           if(typeof key === 'string'){
@@ -108,20 +106,6 @@ export const SelfTorture = ()=>{
     }}>
       下一题
     </Button>
-    </Grid>
-    <Grid item>
-    <Button variant="contained" color="primary" onClick={()=>{
-      setTest1(2)
-      setTest2(test1 + test2)
-    }}>
-      下一题
-    </Button>
-    </Grid>
-    <Grid item>
-      {test1}
-    </Grid>
-    <Grid item>
-      {test2}
     </Grid>
     </Grid>
     </Grid>

@@ -91,7 +91,7 @@ const BasePage:FC<{}> = ({children})=> {
       routePath:'',
       keyWords:[]
     }
-    const rec = (arr:singleCata[] | string[])=>{
+    const rec = (arr:Array<singleCata | string>)=>{
       if(arr.length>0){
         arr.forEach(key=>{
           if(typeof key !== "string"){
@@ -199,7 +199,7 @@ const BasePage:FC<{}> = ({children})=> {
         onClose={()=>setDrawer(false)}
         classes={{paper:"modalStyle"}}
       >
-        {routes.map(key=><div className="navBlock" key={key.routePath} onClick={()=>{
+        {(routes as singleCata[]).map(key=><div className="navBlock" key={key.routePath} onClick={()=>{
           if(key.routePath){
             history.push(key.routePath)
           }
