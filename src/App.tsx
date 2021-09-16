@@ -1,5 +1,4 @@
 import Container from '@material-ui/core/Container';
-import { BrowserRouter } from "react-router-dom";
 import './style.scss'
 import { ThemeProvider } from '@material-ui/core/styles';
 import { createTheme } from '@material-ui/core/styles';
@@ -18,13 +17,11 @@ function App() {
     }
   });
   return (
-    <BrowserRouter basename="/eating-eating">
     <ThemeProvider theme={theme}>
       <Container maxWidth="lg" className="appContainer">
       <Routes></Routes>
       </Container>
     </ThemeProvider>
-    </BrowserRouter>
   );
 }
 export default App

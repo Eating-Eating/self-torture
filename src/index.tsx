@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import {store} from './store'
 import App from './App';
 import { red } from '@material-ui/core/colors';
+import { BrowserRouter } from 'react-router-dom';
 
 // A custom theme for this app
 const theme = createTheme({
@@ -24,12 +25,14 @@ const theme = createTheme({
   }
 });
 ReactDOM.render(
-  <Provider store={store}>
-    <ThemeProvider theme={theme}>
-      {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-      <CssBaseline />
-      <App />
-    </ThemeProvider>
-  </Provider>,
+  <BrowserRouter basename="/eating-eating">
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <CssBaseline />
+          <App />
+        </ThemeProvider>
+      </Provider>
+    </BrowserRouter>,
   document.querySelector('#root'),
 );
