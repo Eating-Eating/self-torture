@@ -3,6 +3,7 @@ import './style.scss'
 import { ThemeProvider } from '@material-ui/core/styles';
 import { createTheme } from '@material-ui/core/styles';
 import {Routes} from './Routes'
+import { withRouter } from 'react-router-dom';
 function App() {
   const theme = createTheme({
     palette: {
@@ -24,4 +25,4 @@ function App() {
     </ThemeProvider>
   );
 }
-export default App
+export default withRouter(App)
