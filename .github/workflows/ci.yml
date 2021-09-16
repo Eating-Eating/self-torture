@@ -27,8 +27,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
+    - name: 安装依赖
+      run: npm install
+    - run: npm run build
     - name: 发布服务器
       uses: easingthemes/ssh-deploy@v2.2.11
       with:
