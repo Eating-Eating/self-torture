@@ -328,7 +328,7 @@ const routes = [
   const rec = (storeArr,routesArr)=>{
     if(storeArr.length > 0){
       storeArr.forEach(key=>{
-        routesArr.push(`<Route path="${key.routePath}" key="${key.routePath}" exact>{<Suspense fallback={<div>loading</div>}><${key.routePath.replace(/[^a-zA-Z]/g,'').toUpperCase()}/></Suspense>}</Route>`)
+        routesArr.push(`<Route path="${key.routePath}" key="${key.routePath}" exact><${key.routePath.replace(/[^a-zA-Z]/g,'').toUpperCase()}/></Route>`)
         rec(key.keyWords,routesArr)
       })
     }

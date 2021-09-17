@@ -48,7 +48,7 @@ const HideOnScroll = (props: {
     </Slide>
   );
 }
-const BasePage:FC<{}> = ({children})=> {
+const BasePage:FC<{pending:boolean}> = ({children,pending})=> {
   const history = useHistory()
   const location = useLocation()
   const [ifDrawer,setDrawer] = useState(false)
@@ -83,7 +83,8 @@ const BasePage:FC<{}> = ({children})=> {
       }
     })
     setNowTitles(handledList)
-  },[children])
+  },[pending])
+  console.log(children)
   const nowState = useMemo(()=>{
     let temp:singleCata = {
       label:'',
@@ -155,7 +156,7 @@ const BasePage:FC<{}> = ({children})=> {
         
           )}
       </Grid>
-      <Container maxWidth="lg" style={{overflowX:'auto',marginBottom:'100px'}}>
+      <Container maxWidth="lg" style={{overflowX:'auto',marginBottom:'100px',wordBreak:'break-all'}}>
       {children}
       </Container>
       <PopupState variant="popover" popupId="demo-popup-popover">

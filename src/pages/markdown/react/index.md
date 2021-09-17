@@ -8,7 +8,7 @@ React16架构可以分为三层：
 - Reconciler（协调器）—— 负责找出变化的组件
 - Renderer（渲染器）—— 负责将变化的组件渲染到页面上
 
-## <a id="whatis">工作流程</a>
+## <a id="progress">工作流程</a>
 
 典型工作流程，Functional Component版在hook中
 
