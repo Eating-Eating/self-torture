@@ -1,6 +1,10 @@
 ## <a id="whatis">是什么</a>
 
-Functional Component独有的更新方式。每个组件内，如果调用了updateFunctionalComponent，将会形成一个单向的workInProgress对象链表，并且每次完成更新后都会将这个头节点存入fiber的memorizedState中后将头结点值为null，方便下次再来一次。这也是为什么hooks顺序不能乱的原因。
+["updateQueue","memoizedState","任务优先级","任务调度流程"]
+
+Functional Component独有的更新方式。每个组件内，如果调用了
+
+updateFunctionalComponent，将会形成一个单向的workInProgress对象链表，并且每次完成更新后都会将这个头节点存入fiber的memorizedState中后将头结点值为null，方便下次再来一次。这也是为什么hooks顺序不能乱的原因。
 
 
 
@@ -11,15 +15,19 @@ Functional Component独有的更新方式。每个组件内，如果调用了upd
 ```js
 function createHook(): Hook {
   return {
+    // 基础state
     memoizedState: null,
 
     baseState: null,
-    queue: null | {last:null | queue,dispath:dispatch},
+    // 记录归迭操作的链表，记录updates的queue并最终生成此次render的state统一更新，这个也是reducer思想的体现
+    queue: null | {last:null | update,dispath:dispatch},
     baseUpdate: null,
-
+	//指向下一个hook
     next: null,
   };
 }
+
+
 ```
 
 

@@ -1,12 +1,18 @@
 ## <a id="whatis">是什么</a>
-keywords:['新老架构对比','class组件与functional component对比']
+keywords:['requestIdleCallback','Reconciler',"Renderer","闭包"]
 构建用户界面的Javascript库。
 
 React16架构可以分为三层：
 
+Scheduler配合fiber结构使用，配合reducer思想，有序记录每一个fiber具体的update，从而实现切片完成任务的调度。
+
+核心函数：requestIdleCallback
+
 - Scheduler（调度器，新）—— 调度任务的优先级，高优任务优先进入**Reconciler**
 - Reconciler（协调器）—— 负责找出变化的组件
 - Renderer（渲染器）—— 负责将变化的组件渲染到页面上
+
+
 
 ## <a id="progress">工作流程</a>
 
@@ -15,8 +21,13 @@ React16架构可以分为三层：
 1. 创建更新：setState，ReactDom.render，forceUpdate
 2. 任务调度
    1. beginWork
-   2. mount/update
+   
+   2. mount/update=>
+   
+      update中含有updateFunctionalComponent：执行函数式组件过程。
+   
    3. reconcilieChildren
+   
    4. commit
 3. commit阶段
    1. commitBeforeMutationLifecycles：提交snapshot

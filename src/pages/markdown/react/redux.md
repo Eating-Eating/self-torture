@@ -1,21 +1,20 @@
 ## <a id="whatis">是什么</a>
-构建用户界面的Javascript库。
+keywords:["reducer","action","state","store","dispatch"]
 
-React16架构可以分为三层：
+函数式编程的思想：reduce，中文可以叫折叠、归约
 
-- Scheduler（调度器）—— 调度任务的优先级，高优任务优先进入**Reconciler**
-- Reconciler（协调器）—— 负责找出变化的组件
-- Renderer（渲染器）—— 负责将变化的组件渲染到页面上
+如果将列表看做是一把展开的扇子，列表中的每个元素看做每根扇骨，则 `reduce` 的过程也即扇子从左到右不断折叠（归约、累积）的过程。当扇子完全合上，一次折叠也即完成。
+
+中心思想：创造一个可追朔的state变化流，每次提交action即为合一次扇子，返回的新状态即为下一次action用到的state。
+
+必须是纯函数：每次输入必须得到相同的结果，所以对于中间件来说，实际上store提供的thunk是在action之前，但我们一般通过dispatch发起action，所以真实的步骤是在dispatch之后，action之前。
+
+<img src="https://awps-assets.meituan.net/mit-x/blog-images-bundle-2017/15f65e33.png"/>
 
 ## <a id="issue">缺陷/优化</a>
 
-CPU渲染瓶颈：同步更新改为可中断的异步更新
-
-IO瓶颈：同步更新改为可中断的异步更新
-
-阻止频繁的更新：useMemo，useCallback
-
-关键词：可中断的异步更新，中间状态
+1. 对于组件：基于props取合适的state
+2. 对于reducer：浅拷贝返回新state触发变化判断
 
 ## <a id="scenario">应用场景</a>
 

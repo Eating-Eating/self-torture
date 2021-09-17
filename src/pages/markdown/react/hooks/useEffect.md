@@ -18,10 +18,6 @@ function createHook(): Hook {
 }
 ```
 
-#### useState
-
-本质是useReducer的语法糖
-
 ### 流程
 
 1. react 在 diff 后，会进入到 commit 阶段，准备把虚拟 DOM 发生的变化映射到真实 DOM 上在 commit 阶段的前期，会调用一些生命周期方法，对于类组件来说，需要触发组件的 getSnapshotBeforeUpdate 生命周期，对于函数组件，此时会调度 useEffect 的 create destroy 函数
@@ -38,13 +34,8 @@ function createHook(): Hook {
 
 ## <a id="issue">缺陷/优化</a>
 
-CPU渲染瓶颈：同步更新改为可中断的异步更新
+依赖没写清楚容易陷入死循环
 
-IO瓶颈：同步更新改为可中断的异步更新
-
-阻止频繁的更新：useMemo，useCallback
-
-关键词：可中断的异步更新，中间状态
 
 ## <a id="scenario">应用场景</a>
 
