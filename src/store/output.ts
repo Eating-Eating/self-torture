@@ -128,12 +128,6 @@ export const dirOutput = {
           ]
         },
         {
-          label: 'key',
-          routePath: '/react/key',
-          mdPath: './pages/markdown/react/key.md',
-          keyWords: []
-        },
-        {
           label: 'performance',
           routePath: '/react/performance',
           mdPath: './pages/markdown/react/performance.md',
@@ -145,18 +139,6 @@ export const dirOutput = {
           mdPath: './pages/markdown/react/redux.md',
           keyWords: []
         },
-        {
-          label: 'renderer',
-          routePath: '/react/renderer',
-          mdPath: './pages/markdown/react/renderer.md',
-          keyWords: []
-        },
-        {
-          label: 'update',
-          routePath: '/react/update',
-          mdPath: './pages/markdown/react/update.md',
-          keyWords: []
-        }
       ]
     },
     {

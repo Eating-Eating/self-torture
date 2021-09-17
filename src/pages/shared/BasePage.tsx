@@ -142,6 +142,7 @@ const BasePage:FC<{}> = ({children})=> {
             return <Grid item key={key.routePath + key.label}>
             <Chip
               label={key.label}
+              color="primary"
               onClick={()=>{
                 if(key.routePath){
                   history.push(key.routePath)
@@ -154,7 +155,7 @@ const BasePage:FC<{}> = ({children})=> {
         
           )}
       </Grid>
-      <Container maxWidth="lg" style={{overflowX:'auto'}}>
+      <Container maxWidth="lg" style={{overflowX:'auto',marginBottom:'100px'}}>
       {children}
       </Container>
       <PopupState variant="popover" popupId="demo-popup-popover">

@@ -35,11 +35,8 @@ export const Routes = ()=>{
 <Route path="/react/hooks" key="/react/hooks" exact>{AsyncCompoennt(import("./pages/markdown/react/hooks/index.md"))}</Route>
 <Route path="/react/hooks/useEffect" key="/react/hooks/useEffect" exact>{AsyncCompoennt(import("./pages/markdown/react/hooks/useEffect.md"))}</Route>
 <Route path="/react/hooks/useState" key="/react/hooks/useState" exact>{AsyncCompoennt(import("./pages/markdown/react/hooks/useState.md"))}</Route>
-<Route path="/react/key" key="/react/key" exact>{AsyncCompoennt(import("./pages/markdown/react/key.md"))}</Route>
 <Route path="/react/performance" key="/react/performance" exact>{AsyncCompoennt(import("./pages/markdown/react/performance.md"))}</Route>
 <Route path="/react/redux" key="/react/redux" exact>{AsyncCompoennt(import("./pages/markdown/react/redux.md"))}</Route>
-<Route path="/react/renderer" key="/react/renderer" exact>{AsyncCompoennt(import("./pages/markdown/react/renderer.md"))}</Route>
-<Route path="/react/update" key="/react/update" exact>{AsyncCompoennt(import("./pages/markdown/react/update.md"))}</Route>
 <Route path="/vue" key="/vue" exact>{AsyncCompoennt(import("./pages/markdown/vue/index.md"))}</Route>
 <Route path="/vue/diff" key="/vue/diff" exact>{AsyncCompoennt(import("./pages/markdown/vue/diff.md"))}</Route>
 <Route path="/vue/directives" key="/vue/directives" exact>{AsyncCompoennt(import("./pages/markdown/vue/directives.md"))}</Route>
