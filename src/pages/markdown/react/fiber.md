@@ -37,9 +37,9 @@ fiber架构主要针对的是整个react组件树粒度的更新，hook架构主
 
 重点：type，return，sibling，child，ref，pendingProps，memoizedProps，updateQueue，memoizedState，context
 
-```javascript
+```typescript
 // Fiber对应一个组件需要被处理或者已经处理了，一个组件可以有一个或者多个Fiber
-type Fiber = {|
+type Fiber = {
   // 标记不同的组件类型
   tag: WorkTag,
 
@@ -143,7 +143,7 @@ type Fiber = {|
   _debugSource?: Source | null,
   _debugOwner?: Fiber | null,
   _debugIsCurrentlyTiming?: boolean,
-|};
+};
 ```
 
 ##  

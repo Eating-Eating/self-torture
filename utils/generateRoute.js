@@ -1,3 +1,4 @@
+const fs = require('fs')
 const routes = [
     {
       label: 'css',
@@ -123,18 +124,6 @@ const routes = [
           ]
         },
         {
-          label: 'hooks',
-          routePath: '/react/hooks',
-          mdPath: './pages/markdown/react/hooks.md',
-          keyWords: []
-        },
-        {
-          label: 'key',
-          routePath: '/react/key',
-          mdPath: './pages/markdown/react/key.md',
-          keyWords: []
-        },
-        {
           label: 'performance',
           routePath: '/react/performance',
           mdPath: './pages/markdown/react/performance.md',
@@ -146,18 +135,6 @@ const routes = [
           mdPath: './pages/markdown/react/redux.md',
           keyWords: []
         },
-        {
-          label: 'renderer',
-          routePath: '/react/renderer',
-          mdPath: './pages/markdown/react/renderer.md',
-          keyWords: []
-        },
-        {
-          label: 'update',
-          routePath: '/react/update',
-          mdPath: './pages/markdown/react/update.md',
-          keyWords: []
-        }
       ]
     },
     {
@@ -351,10 +328,17 @@ const routes = [
   const rec = (storeArr,routesArr)=>{
     if(storeArr.length > 0){
       storeArr.forEach(key=>{
-        routesArr.push(`<Route path="${key.routePath}" key="${key.routePath}" exact>{AsyncCompoennt(import("${key.mdPath}"))}</Route>`)
+        routesArr.push(`<Route path="${key.routePath}" key="${key.routePath}" exact>{<Suspense fallback={<div>loading</div>}><${key.routePath.replace(/[^a-zA-Z]/g,'').toUpperCase()}/></Suspense>}</Route>`)
         rec(key.keyWords,routesArr)
       })
     }
   }
   rec(routes,asdfasf)
-  console.log(asdfasf.join('\n'))
+  
+fs.writeFile('Route.js',asdfasf.join('\n'),'utf8',function(error){
+  if(error){
+    console.log(error);
+    return false
+  }
+  console.log('写入成功')
+})
