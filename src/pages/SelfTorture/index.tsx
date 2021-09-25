@@ -3,7 +3,6 @@ import { Button, Chip, Grid, Typography } from "@material-ui/core";
 import { useEffect, useMemo, useState } from "react";
 
 export const SelfTorture = () => {
-  const [count,setCount] = useState(1)
   const routes = useAppSelector((state) => state.routes);
   const allKeywords = useMemo(() => {
     const questions: { name: any; answer: string[] }[] = [];
@@ -118,11 +117,6 @@ export const SelfTorture = () => {
               >
                 下一题
               </Button>
-              <div>{count}</div>
-              <div onClick={()=>{
-                setCount(count + 1)
-                setCount(count + 1)
-              }}>123</div>
             </Grid>
           </Grid>
         </Grid>

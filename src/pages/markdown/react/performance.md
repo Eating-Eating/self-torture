@@ -1,11 +1,10 @@
 ## <a id="whatis">是什么</a>
-构建用户界面的Javascript库。
 
-React16架构可以分为三层：
+## Functional Component层面：
+1. 用useCallback缓存复杂计算函数
+2. 用useMemo缓存组件或者数据
+3. 正确填写useEffect的依赖项，减少useEffect函数中setState数量，useEffect与useState的相互嵌套意味着多次重绘 
 
-- Scheduler（调度器）—— 调度任务的优先级，高优任务优先进入**Reconciler**
-- Reconciler（协调器）—— 负责找出变化的组件
-- Renderer（渲染器）—— 负责将变化的组件渲染到页面上
 
 ## <a id="issue">缺陷/优化</a>
 

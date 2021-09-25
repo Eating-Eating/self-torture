@@ -1,6 +1,6 @@
 ## <a id="whatis">是什么</a>
 
-["updateQueue","memoizedState","任务优先级","任务调度流程"]
+["updateQueue","memoizedState","任务优先级","任务调度流程","闭包陷阱"]
 
 Functional Component独有的更新方式。每个组件内，如果调用了
 
@@ -19,12 +19,21 @@ function createHook(): Hook {
     memoizedState: null,
 
     baseState: null,
-    // 记录归迭操作的链表，记录updates的queue并最终生成此次render的state统一更新，这个也是reducer思想的体现
-    queue: null | {last:null | update,dispath:dispatch},
+    // 记录归迭操作的链表，记录updates的queue并最终生成此次render的state统一更新，这个也是reducer思想的体现，链表设计也是为了可中断
+    queue: null | {last:null | Update,dispath:dispatch},
     baseUpdate: null,
 	//指向下一个hook
     next: null,
   };
+}
+
+interface Update:{
+  // 超时时间
+  expirationTime: renderExpirationTime,
+  // action
+  action:A,
+  // 指向下一个update
+  next: null | Update,
 }
 
 
@@ -58,11 +67,8 @@ IO瓶颈：同步更新改为可中断的异步更新
 
 阻止频繁的更新：useMemo，useCallback
 
-关键词：可中断的异步更新，中间状态
+闭包陷阱：useEffect中函数引用了hook中的变量时，会创建闭包，比如setTimeout，会保存当时的变量
 
-## <a id="scenario">应用场景</a>
-
-大型应用
 
 ## <a id="reference">引用</a>
 
