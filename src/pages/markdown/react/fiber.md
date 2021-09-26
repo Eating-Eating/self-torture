@@ -5,6 +5,8 @@ fiber架构主要针对的是整个react组件树粒度的更新，hook架构主
 
 ### 执行顺序：
 
+<img src="https://segmentfault.com/img/remote/1460000017241042?w=780&h=420"/>
+
 1. 触发更新
 
 2. diff
@@ -146,5 +148,9 @@ type Fiber = {
 };
 ```
 
+## <a id="whatis">参考</a>
 
+Deep In React之浅谈 React Fiber 架构(一)：https://mp.weixin.qq.com/s?__biz=MzI1ODk2Mjk0Nw==&mid=2247484469&idx=1&sn=f68d044f1b0e4e2eb981e3878427b75b&scene=21#wechat_redirect
+
+React Fiber 那些事: 深入解析新的协调算法：https://segmentfault.com/a/1190000017241034
 

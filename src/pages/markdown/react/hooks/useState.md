@@ -5,10 +5,11 @@ keywords:["updateQueue","basicStateReducer"]
 useReducer，接受两个参数，reducer以及initialState，返回state以及dispatcher
 useState的reducer为basicStateReducer，只有一种action，所以不用传入reducer
 
+```javascript
 function basicStateReducer<S>(state: S, action: BasicStateAction<S>): S {
   return typeof action === 'function' ? action(state) : action;
 }
-
+```
 
 
 ### 流程：

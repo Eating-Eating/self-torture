@@ -1,7 +1,14 @@
 ## <a id="whatis">是什么</a>
-REACT
+根据当前fiber中new children来决定diff策略
 
-同级比较
+1. 单节点diff
+   - key
+   - tag type
+2. 多节点diff：更新、移动、新增、删除
+   - 处理更新节点
+   - 处理不属于更新的节点
+
+key的作用：主要是辨别节点是否可以复用
 
 ## <a id="issue">缺陷/优化</a>
 
