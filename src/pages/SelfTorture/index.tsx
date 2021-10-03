@@ -1,7 +1,7 @@
 import { singleCata, useAppSelector } from "@/store";
 import { Button, Chip, Grid, Typography } from "@material-ui/core";
 import { useEffect, useMemo, useState } from "react";
-
+import {shuffle} from 'lodash'
 export const SelfTorture = () => {
   const routes = useAppSelector((state) => state.routes);
   const allKeywords = useMemo(() => {
@@ -60,6 +60,7 @@ export const SelfTorture = () => {
       opts.push(allKeywords.keysArr[ranIndex]);
       opts = [...new Set(opts)];
     }
+    opts = shuffle(opts)
     setOption(opts);
   }, [allKeywords.keysArr, allKeywords.questions, randomNum]);
   useEffect(() => {

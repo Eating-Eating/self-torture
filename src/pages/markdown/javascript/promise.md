@@ -1,6 +1,12 @@
 ## <a id="whatis">是什么</a>
 keywords:['状态','then方法','onFufilled状态','then返回值']
 
+初始化构造函数，注册then以及catch，then方法返回新的promise以形成链式调用
+
+### promise接收参数
+
+函数，其中有resolve跟reject方法。
+
 ### 状态
 
 1. `pending`: 一个promise在resolve或者reject前就处于这个状态。
@@ -38,23 +44,11 @@ promise2 = promise1.then(onFulfilled, onRejected);
 
 
 
-## <a id="issue">缺陷/优化</a>
-
-CPU渲染瓶颈：同步更新改为可中断的异步更新
-
-IO瓶颈：同步更新改为可中断的异步更新
-
-阻止频繁的更新：useMemo，useCallback
-
-关键词：可中断的异步更新，中间状态
-
 ## <a id="scenario">应用场景</a>
 
 大型应用
 
-## <a id="replacement">代替方案</a>
+## <a id="reference">引用</a>
 
-svelte：**No Runtime**、**Samll**、**高性能**、**更少的代码**、**单测不友好**、**生态不完善**、**数组映射脏数据更新**
-
-vue
+手写一个Promise/A+,完美通过官方872个测试用例：https://segmentfault.com/a/1190000023157856
 

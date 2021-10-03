@@ -8,7 +8,7 @@ JavaScript 只有一种结构：对象。每个实例对象（object）都有一
 [[Prototype]] 可以通过 Object.getPrototypeOf() 和 Object.setPrototypeOf() 访问器来访问。这个等同于 JavaScript 的非标准但许多浏览器实现的属性 __proto__。
 
 ## <a id="how">生成原型链</a>
-1. create
+1. create=>以参数对象作为新对象的_proto_
 2. setPrototypeOf()
 3. 直接通过__proto__属性链接
 4. Class
