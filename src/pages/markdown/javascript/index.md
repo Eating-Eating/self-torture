@@ -30,5 +30,89 @@ Function.prototype.myCall = (context = window,arg)=>{
 }
 ```
 
+## <a id="promise">Promise</a>
 
+1. 三种状态
+2. then解决过程
+3. 订阅status，resolve发布执行过程。
+4. 异步执行then
+
+```javascript
+class myPromise {
+    constructor(fn){
+        this.status = 'pending';
+        this.value = null;
+        this.reason = null;
+        this.onFullfilledQueue = [];
+        this.onRejectedQueue = [];
+        try{
+            fn(resolve,reject)
+        }catch{
+            reject(err)
+        }
+    }
+    resolve(value){
+        if(this.status === 'pending'){
+            this.value = value;
+            this.status = 'resolved'
+            this.onFullfilledQueue.forEach(cb=>cb(this.value))
+        }
+    }
+    reject(reason){
+        if(this.status === 'pending'){
+            this.reason = reason
+            this.status = 'rejected'
+            this.onFullfilledQueue.forEach(cb=>cb(this.value))
+        }
+        
+    }
+    then(onFullfilled,onRejected){
+        if(this.status === 'onFullfilled'){
+            const promise2 = new myPromise((rs,rj)=>{
+                
+            })
+        }
+        if(this.status === 'pending'){
+        	const promise2 = new myPromise(reso)
+            this.onFullfilledQueue.push(onFullfilled)
+            this.onRejectedQueue.push(onRejected)
+        }
+    
+    }
+    resolvePromise(promise,x,resolve,reject){
+        
+    }
+}
+```
+
+## <a id="debounce">防抖/节流</a>
+
+1. 调用的是返回的函数
+2. 利用闭包保存初始化时的父级变量
+
+```javascript
+// 基础版
+function debounce(event, time){
+    let timer = null
+    let context = this
+    return function(...args){
+        clearTimeout(timer)
+        timer = setTimeout(()=>{
+        	event.apply(context,args)
+        },time)
+    }
+}
+// 进阶版
+function debounce(event,time,immediate){
+    let timer = null;
+    let context = this;
+    return function(...args){
+        if (!timer && immediate){
+            event.apply(context,args)
+            timer = 1
+        }
+        
+    }
+}
+```
 
