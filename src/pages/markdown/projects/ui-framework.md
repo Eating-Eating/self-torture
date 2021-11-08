@@ -27,7 +27,19 @@ vue3-render渲染
 
 import-plugin：解决import css跟import Js
 
+precommit:
+
+1. 身份校验
+
 gulp：编写发布，发布校验，打包等自动化脚本，控制打包参数。
+
+1. 生成主题文件
+2. 生成版本号
+3. 生成html模板文件
+
+git actions:
+
+1. test
 
 ## <a id="scenario">应用场景</a>
 
