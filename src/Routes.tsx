@@ -81,6 +81,9 @@ const WEBBROWSERCROSSPAGEINDEXEDDB = lazy<any>(
 const WEBBROWSERCROSSPAGELOCALSTORAGE = lazy<any>(
   () => import("./pages/markdown/webBrowser/crossPage/LocalStorage.md")
 );
+const THINKINGINDEX = lazy<any>(
+  () => import("./pages/markdown/thinking/index.md")
+);
 const WEBBROWSERCROSSPAGESERVICEWORKER = lazy<any>(
   () => import("./pages/markdown/webBrowser/crossPage/Service Worker.md")
 );
@@ -198,6 +201,9 @@ export const Routes = () => {
                   exact
                 >
                   <JAVASCRIPTPROTOTYPE />
+                </Route>
+                <Route path="/thinking" key="/thinking" exact>
+                  <THINKINGINDEX />
                 </Route>
                 <Route path="/projects" key="/projects" exact>
                   <PROJECTS />
