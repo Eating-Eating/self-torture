@@ -7,6 +7,7 @@ import {store} from './store'
 import App from './App';
 import { red } from '@material-ui/core/colors';
 import { BrowserRouter } from 'react-router-dom';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 // A custom theme for this app
 const theme = createTheme({
@@ -37,3 +38,5 @@ ReactDOM.render(
       </Provider>,
   document.querySelector('#root'),
 );
+serviceWorkerRegistration.unregister();
+
