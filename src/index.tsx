@@ -38,5 +38,5 @@ ReactDOM.render(
       </Provider>,
   document.querySelector('#root'),
 );
-serviceWorkerRegistration.unregister();
+serviceWorkerRegistration.register();
 
