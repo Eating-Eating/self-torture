@@ -185,6 +185,12 @@ export const dirOutput = {
       ]
     },
     {
+      label: 'thinking',
+      routePath: '/thinking',
+      mdPath: './pages/markdown/thinking/index.md',
+      keyWords:[]
+    },
+    {
       label: 'webBrowser',
       routePath: '/webBrowser',
       mdPath: './pages/markdown/webBrowser/index.md',
