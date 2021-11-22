@@ -1,17 +1,27 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "incremental": true,
+    "outDir": "build/lib",
+    "sourceMap": true,
+    "importHelpers": true,
+    "declaration": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "allowJs": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "experimentalDecorators": true,
+    "rootDir": "",
+    "baseUrl": "src",
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
-    "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -25,11 +35,6 @@
     "jsx": "react-jsx",
     "noFallthroughCasesInSwitch": true
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "*.md",
-    "utils"
-  ]
+  "include": ["src","utils"],
+  "exclude": ["*.md","node_modules"]
 }

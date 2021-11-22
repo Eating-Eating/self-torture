@@ -1,3 +1,6 @@
+```keymap
+['testKeyMap','testKeyMap2']
+```
 ## <a id="new">New</a>
 1. 创建一个空对象（newObj），将该对象的\_proto\_绑定到到构造函数的prototype
 2. 以这个对象（newObj）作为this执行构造函数
