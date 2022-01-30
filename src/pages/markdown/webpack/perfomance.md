@@ -1,11 +1,14 @@
 ## <a id="whatis">是什么</a>
-构建用户界面的Javascript库。
+keywords:['dev','prod','cache','delay','native code']
 
-React16架构可以分为三层：
+webpack的优化从2个角度进行：开发时、生产时。
 
-- Scheduler（调度器）—— 调度任务的优先级，高优任务优先进入**Reconciler**
-- Reconciler（协调器）—— 负责找出变化的组件
-- Renderer（渲染器）—— 负责将变化的组件渲染到页面上
+三个角度提升开发环境编辑表现
+
+1. 缓存
+2. 延迟处理
+3. native code
+4. 压缩(生产)
 
 ## <a id="issue">缺陷/优化</a>
 
@@ -26,4 +29,8 @@ IO瓶颈：同步更新改为可中断的异步更新
 svelte：**No Runtime**、**Samll**、**高性能**、**更少的代码**、**单测不友好**、**生态不完善**、**数组映射脏数据更新**
 
 vue
+
+# <a id="reference">引用</a>
+
+GMTC前端构建提速的体系化思路：https://static001.geekbang.org/con/94/pdf/564637192/file/%E5%89%8D%E7%AB%AF%E6%9E%84%E5%BB%BA%E6%8F%90%E9%80%9F%E7%9A%84%E4%BD%93%E7%B3%BB%E5%8C%96%E6%80%9D%E8%B7%AF%20-%20%E9%99%88%E6%88%90.pdf
 

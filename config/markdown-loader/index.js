@@ -35,3 +35,4 @@ module.exports = function(source) {
   // console.log('output',`export default ()=><div>${output}</div>`)
   return `export default ()=><div>${output}</div>`
 }
+
