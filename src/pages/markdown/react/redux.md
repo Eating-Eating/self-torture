@@ -1,5 +1,7 @@
 ## <a id="whatis">是什么</a>
-keywords:["reducer","action","state","store","dispatch"]
+keywords:["reducer","action","state","store","dispatch","composition","pipe"]
+
+***组合***,***管道***
 
 函数式编程的思想：reduce，中文可以叫折叠、归约
 

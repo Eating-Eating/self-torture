@@ -46,6 +46,11 @@ const callbackFixed = ()=>{
 }
 ```
 
+## <a id="implement">简易实现</a>
+
+> 1. 多次调用不影响使用
+> 2. 创造一个updatequeue
+> 3. 记忆化action():S | S
 
 ## <a id="reference">引用</a>
 
