@@ -1,7 +1,9 @@
+import React, { useEffect, useMemo, useState } from "react";
 import { singleCata, useAppSelector } from "@/store";
-import { Button, Chip, Grid, Typography } from "@material-ui/core";
-import { useEffect, useMemo, useState } from "react";
-import {shuffle} from 'lodash'
+import { Button, Chip, Grid, Typography } from "@mui/material";
+import { shuffle } from "lodash";
+import { marked } from "marked";
+
 export const SelfTorture = () => {
   const routes = useAppSelector((state) => state.routes);
   const allKeywords = useMemo(() => {
@@ -60,12 +62,23 @@ export const SelfTorture = () => {
       opts.push(allKeywords.keysArr[ranIndex]);
       opts = [...new Set(opts)];
     }
-    opts = shuffle(opts)
+    opts = shuffle(opts);
     setOption(opts);
   }, [allKeywords.keysArr, allKeywords.questions, randomNum]);
   useEffect(() => {
     setMyAnswer(new Set());
   }, [nowQuestion]);
+
+  const handleAnswerClick = (key: string) => {
+    const newAnswer = new Set(myAnswer);
+    if (newAnswer.delete(key)) {
+      setMyAnswer(newAnswer);
+    } else {
+      newAnswer.add(key);
+      setMyAnswer(newAnswer);
+    }
+  };
+
   return (
     <>
       <Grid container justifyContent="center" spacing={10}>
@@ -74,19 +87,13 @@ export const SelfTorture = () => {
         </Grid>
         <Grid item xs={12} justifyContent="center">
           <Grid container justifyContent="center" spacing={1}>
-            {option.map((key: any) => {
+            {option.map((key: string) => {
               return (
                 <Grid item key={key}>
                   <Chip
                     label={key}
                     color={myAnswer.has(key) ? "primary" : "default"}
-                    onClick={() => {
-                      if (myAnswer.delete(key)) {
-                        setMyAnswer(new Set([...myAnswer]));
-                      } else {
-                        setMyAnswer(new Set([...myAnswer.add(key)]));
-                      }
-                    }}
+                    onClick={() => handleAnswerClick(key)}
                   />
                 </Grid>
               );

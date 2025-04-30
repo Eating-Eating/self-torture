@@ -1,5 +1,9 @@
-   
 /// <reference lib="webworker" />
+/// <reference types="workbox-core" />
+/// <reference types="workbox-expiration" />
+/// <reference types="workbox-precaching" />
+/// <reference types="workbox-routing" />
+/// <reference types="workbox-strategies" />
 /* eslint-disable no-restricted-globals */
 
 // This service worker can be customized!

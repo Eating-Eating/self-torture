@@ -1,40 +1,26 @@
 {
   "compilerOptions": {
-    "strictNullChecks": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "incremental": true,
-    "outDir": "build/lib",
-    "sourceMap": true,
-    "importHelpers": true,
-    "declaration": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "allowJs": false,
-    "suppressImplicitAnyIndexErrors": true,
-    "experimentalDecorators": true,
-    "rootDir": "",
-    "baseUrl": "src",
-    "target": "esnext",
+    "target": "es2015",
     "lib": ["dom", "dom.iterable", "esnext"],
-
-    "paths": {
-      "@/*": ["./src/*"]
-    },
+    "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "noFallthroughCasesInSwitch": true
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "types": ["node", "react", "react-dom", "react-router-dom"]
   },
-  "include": ["src","utils"],
-  "exclude": ["*.md","node_modules"]
+  "include": ["src"],
+  "exclude": ["src/service-worker.ts", "src/serviceWorkerRegistration.ts"]
 }

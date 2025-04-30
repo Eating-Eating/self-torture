@@ -1,29 +1,242 @@
-## <a id="whatis">是什么</a>
-构建用户界面的Javascript库。
+## <a id="whatis">解释 JavaScript 中 `this` 的工作原理</a>
 
-React16架构可以分为三层：
+this 在 JavaScript 中是一个关键字，代表当前执行代码所处的对象。
 
-- Scheduler（调度器）—— 调度任务的优先级，高优任务优先进入**Reconciler**
-- Reconciler（协调器）—— 负责找出变化的组件
-- Renderer（渲染器）—— 负责将变化的组件渲染到页面上
+具体来说，this 的取值有以下几种情况：
 
-## <a id="issue">缺陷/优化</a>
+1. 当函数作为对象的方法被调用时，this 指向调用该方法的对象。
+2. 当函数作为普通函数被调用时，this 指向全局对象（在浏览器中为 window 对象，在 Node.js 环境中为 global 对象）。
+3. 当使用 call()、apply()、bind()方法调用函数时，可以手动绑定 this 指向。
+4. 当使用箭头函数时，this 指向被定义时所在的词法作用域中的 this。
 
-CPU渲染瓶颈：同步更新改为可中断的异步更新
+## This
 
-IO瓶颈：同步更新改为可中断的异步更新
+`this` 没有简单的解释；它是 JavaScript 中最令人困惑的概念之一，因为它的行为与其他许多编程语言不同。`this` 关键字的单行解释是，它是一个对函数执行上下文的动态引用。
 
-阻止频繁的更新：useMemo，useCallback
+更长的解释是，`this` 遵循以下规则：
 
-关键词：可中断的异步更新，中间状态
+1. 如果在调用函数时使用了 `new` 关键字，这意味着该函数被用作函数构造函数，则函数内部的 `this` 是新创建的对象实例。
+2. 如果在 `class` `constructor` 中使用了 `this`，则 `constructor` 内部的 `this` 是新创建的对象实例。
+3. 如果使用 `apply()`、`call()` 或 `bind()` 调用/创建函数，则函数内部的 `this` 是作为参数传入的对象。
+4. 如果一个函数被调用为一个方法（例如 `obj.method()`）——`this` 是该函数所属的对象。
+5. 如果一个函数被调用为自由函数调用，这意味着它是在没有任何上述条件的情况下被调用的，`this` 是全局对象。在浏览器中，全局对象是 `window` 对象。如果在严格模式 (`'use strict';`) 中，`this` 将是 `undefined` 而不是全局对象。
+6. 如果应用了多个上述规则，则优先级较高的规则将获胜并设置 `this` 的值。
+7. 如果该函数是 ES2015 箭头函数，它会忽略上述所有规则，并在创建时接收其周围作用域的 `this` 值。
 
-## <a id="scenario">应用场景</a>
+如需深入解释，请查看 [Arnav Aggrawal 在 Medium 上的文章](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3)。
 
-大型应用
+---
 
-## <a id="replacement">代替方案</a>
+## `this` 关键字
 
-svelte：**No Runtime**、**Samll**、**高性能**、**更少的代码**、**单测不友好**、**生态不完善**、**数组映射脏数据更新**
+在 JavaScript 中，`this` 是一个关键字，它引用函数或脚本的当前执行上下文。这是 JavaScript 中的一个基本概念，理解 `this` 的工作原理对于构建健壮且可维护的应用程序至关重要。
 
-vue
+### 全局使用
 
+在全局范围内，`this` 引用全局对象，在 Web 浏览器中是 `window` 对象，在 Node.js 环境中是 `global` 对象。
+
+```js
+console.log(this); // 在浏览器中，这将记录 window 对象（对于非严格模式）。
+```
+
+### 在常规函数调用中
+
+当一个函数在全局上下文中或作为独立函数被调用时，`this` 引用全局对象（在非严格模式下）或 `undefined`（在严格模式下）。
+
+```js
+function showThis() {
+  console.log(this);
+}
+
+showThis(); // 在非严格模式下：Window（全局对象）。在严格模式下：undefined。
+```
+
+### 在方法调用中
+
+当一个函数作为对象的方法被调用时，`this` 引用该方法被调用的对象。
+
+```js live
+const obj = {
+  name: "John",
+  showThis: function () {
+    console.log(this);
+  },
+};
+
+obj.showThis(); // { name: 'John', showThis: ƒ }
+```
+
+请注意，如果你这样做，它就和常规函数调用一样，而不是方法调用。`this` 已经失去了它的上下文，不再指向 `obj`。
+
+```js
+const obj = {
+  name: "John",
+  showThis: function () {
+    console.log(this);
+  },
+};
+
+const showThisStandalone = obj.showThis;
+showThisStandalone(); // 在非严格模式下：Window（全局对象）。在严格模式下：undefined。
+```
+
+### 在函数构造器中
+
+当一个函数被用作构造器（使用 `new` 关键字调用）时，`this` 指的是新创建的实例。在下面的例子中，`this` 指的是正在创建的 `Person` 对象，并且 `name` 属性是在该对象上设置的。
+
+```js live
+function Person(name) {
+  this.name = name;
+}
+
+const person = new Person("John");
+console.log(person.name); // "John"
+```
+
+### 在类构造函数和方法中
+
+在 ES2015 类中，`this` 的行为与在对象方法中一样。它指的是类的实例。
+
+```js live
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  showThis() {
+    console.log(this);
+  }
+}
+
+const person = new Person("John");
+person.showThis(); // Person {name: 'John'}
+
+const showThisStandalone = person.showThis;
+showThisStandalone(); // `undefined` 因为类的所有部分都是严格模式。
+```
+
+### 显式绑定 `this`
+
+你可以使用 `bind()`、`call()` 或 `apply()` 来显式设置函数的 `this` 的值。
+
+使用 `call()` 和 `apply()` 方法允许您在调用函数时显式设置 `this` 的值。
+
+```js live
+function showThis() {
+  console.log(this);
+}
+const obj = { name: "John" };
+
+showThis.call(obj); // { name: 'John' }
+showThis.apply(obj); // { name: 'John' }
+```
+
+`bind()` 方法创建一个新函数，并将 `this` 绑定到指定的值。
+
+```js live
+function showThis() {
+  console.log(this);
+}
+const obj = { name: "John" };
+
+const boundFunc = showThis.bind(obj);
+boundFunc(); // { name: 'John' }
+```
+
+### 在箭头函数中
+
+箭头函数没有自己的 `this` 上下文。相反，`this` 是词法作用域的，这意味着它继承了定义时周围作用域的 `this` 值。
+
+在这个例子中，`this` 指的是全局对象（window 或 global），因为箭头函数没有绑定到 `person` 对象。
+
+```js live
+const person = {
+  firstName: "John",
+  sayHello: () => {
+    console.log(`Hello, my name is ${this.firstName}!`);
+  },
+};
+
+person.sayHello(); // "Hello, my name is undefined!"
+```
+
+在下面的例子中，箭头函数中的 `this` 将是其封闭上下文的 `this` 值，因此它取决于 `showThis()` 的调用方式。
+
+```js
+const obj = {
+  name: "John",
+  showThis: function () {
+    const arrowFunc = () => {
+      console.log(this);
+    };
+    arrowFunc();
+  },
+};
+
+obj.showThis(); // { name: 'John', showThis: ƒ }
+
+const showThisStandalone = obj.showThis;
+showThisStandalone(); // 在非严格模式下：Window（全局对象）。在严格模式下：undefined。
+```
+
+因此，箭头函数中的 `this` 值不能通过 `bind()`、`apply()` 或 `call()` 方法设置，它也不会指向对象方法中的当前对象。
+
+```js
+const obj = {
+  name: "Alice",
+  regularFunction: function () {
+    console.log("Regular function:", this.name);
+  },
+  arrowFunction: () => {
+    console.log("Arrow function:", this.name);
+  },
+};
+
+const anotherObj = {
+  name: "Bob",
+};
+
+// 使用 call/apply/bind 和常规函数
+obj.regularFunction.call(anotherObj); // Regular function: Bob
+obj.regularFunction.apply(anotherObj); // Regular function: Bob
+const boundRegularFunction = obj.regularFunction.bind(anotherObj);
+boundRegularFunction(); // Regular function: Bob
+
+// 使用 call/apply/bind 和箭头函数，`this` 指的是全局作用域，并且不能被修改。
+obj.arrowFunction.call(anotherObj); // Arrow function: window/undefined (depending if strict mode)
+obj.arrowFunction.apply(anotherObj); // Arrow function: window/undefined (depending if strict mode)
+const boundArrowFunction = obj.arrowFunction.bind(anotherObj);
+boundArrowFunction(); // Arrow function: window/undefined (depending if strict mode)
+```
+
+### 在事件处理程序中
+
+当一个函数被调用为 DOM 事件处理程序时，`this` 指的是触发该事件的元素。在这个例子中，`this` 指的是被点击的 `<button>` 元素。
+
+```html
+<button id="my-button" onclick="console.log(this)">Click me</button>
+<!-- Logs the button element -->
+```
+
+使用 JavaScript 设置事件处理程序时，`this` 也指的是接收事件的元素。
+
+```js
+document.getElementById("my-button").addEventListener("click", function () {
+  console.log(this); // Logs the button element
+});
+```
+
+如上所述，ES2015 引入了 [箭头函数](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)，它使用 [封闭的词法范围](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_separate_this)。这通常很方便，但确实阻止了调用者通过 `.call`/`.apply`/`.bind` 定义 `this` 上下文。其中一个后果是，如果您使用箭头函数定义 `.addEventListener()` 的回调参数，DOM 事件处理程序将无法在您的事件处理程序函数中正确绑定 `this`。
+
+```js
+document.getElementById("my-button").addEventListener("click", () => {
+  console.log(this); // Window / undefined (depending on whether strict mode) instead of the button element.
+});
+```
+
+总而言之，JavaScript 中的 `this` 指的是函数或脚本的当前执行上下文，其值可以根据使用它的上下文而改变。理解 `this` 的工作方式对于构建健壮且可维护的 JavaScript 应用程序至关重要。
+
+## 延伸阅读
+
+- [this - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+- [The Simple Rules to `this` in Javascript](https://medium.com/m/global-identity-2?redirectUrl=https%3A%2F%2Fcodeburst.io%2Fthe-simple-rules-to-this-in-javascript-35d97f31bde3)
